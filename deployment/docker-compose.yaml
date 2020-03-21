@@ -1,0 +1,18 @@
+version: "3"
+services:
+  reverseproxy:
+      image: rproxy
+      ports:
+          - 8080:8080
+      restart: always
+      depends_on:
+        - customer-svc
+        - product-svc     
+  customer-svc:
+    image: customer-svc
+    environment:
+      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
+  product-svc:
+    image: product-svc
+    environment:
+      POSTGRESS_USERNAME: $POSTGRESS_USERNAME

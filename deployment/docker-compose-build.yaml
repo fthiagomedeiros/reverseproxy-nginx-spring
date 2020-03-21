@@ -1,0 +1,14 @@
+version: "3"
+services:
+  reverseproxy:
+    build:
+      context: .
+    image: rproxy
+  product_svc:
+    build:
+      context: ../products
+    image: product-svc
+  customer_svc:
+    build:
+      context: ../customer  
+    image: customer-svc
