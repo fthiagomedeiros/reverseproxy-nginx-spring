@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-kube-deployment
+  labels:
+    app: hello-kube-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-kube-deployment
+  template:
+    metadata:
+      labels:
+        app: hello-kube-deployment
+    spec:
+      containers:
+      - name: hello-kube-deployment
+        image: fthiagomedeiros/hello-kube
+        ports:
+        - containerPort: 3000
